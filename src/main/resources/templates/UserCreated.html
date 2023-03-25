@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>user created</title>
+</head>
+<body onload="myFunction()">
+<h4>User details</h4>
+<a th:href="@{${homeLink}}" onclick="myFunction()">Home</a>
+<p th:text = "'User Id : ' + ${userData.getCustomerBean().getUserId()}"></p>
+<p th:text = "'User Name: ' +${userData.getCustomerBean().getName()}">
+<p th:text = "'Gender: ' +${userData.getCustomerBean().getGender()}">
+<p id="userName" th:text = "'Email Id: '+${userData.getCustomerBean().getEmail()}">
+<p th:text = "'contact Number: '+${userData.getCustomerBean().getContactNumber()}">
+<p th:text = "'Adhar Number: '+${userData.getCustomerBean().getAdharNo()}">
+<p th:text = "'Account Number: ' +${userData.getCustomerBean().getAccountNumber().getAccountNumber()}">
+<p th:text = "'Account Balance: ' +${userData.getCustomerBean().getAccountNumber().getBalanceAmount()}">
+<p th:text = "'Account Type : ' +${userData.getCustomerBean().getAccountNumber().getAccountType()}"></p>
+<p id="password" th:text = "'User Password : ' + ${userData.getPassword()}">
+</body>
+</html>
+<script>
+function myFunction() {
+  alert(document.getElementById("userName").innerText +"\n"+ document.getElementById("password").innerText + "\n" + "Please make a note of youe login credentials");
+}
+</script>

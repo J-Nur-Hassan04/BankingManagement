@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Create User</title>
+</head>
+<body>
+
+<form th:action="@{/admin/create-customer}" method="post">
+<label for="user-name" >Enter name</label>
+<input name="name" type="text" id="user-name" required="required"><br>
+
+<label for="user-gender">Select gender</label>
+<select name="gender" id="user-gender">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+</select>
+<br>
+<label for="user-email">Enter email</label>
+<input name="email" type="email" id="user-email" required="required">
+<br>
+<label for="user-contact-number">Enter contact number</label>
+<input name="contact" type="text" id="user-contact-number" required="required">
+<br>
+<label for="user-adhar">Enter aadhar number</label>
+<input name="adhar" type="text" id="user-adhar" required="required">
+<br>
+<label for = "user-accountType">Select Account type</label>
+<select name="accountType" id="user-accountType">
+    <option value="Savings">Savings</option>
+    <option value="Current">Current</option>
+</select>
+<br>
+<button type="submit">add user</button>
+</form>
+<a href="/admin/home">Home</a>
+</body>
+</html>

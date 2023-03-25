@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Transection success</title>
+</head>
+<body>
+<p th:each="instance : ${data}">
+    <td th:text="${instance.key} + ' : '">keyvalue</td>
+    <td th:text="${instance.value}">num</td>
+</p>
+<a href="/admin/home">Home</a>
+</body>
+</html>

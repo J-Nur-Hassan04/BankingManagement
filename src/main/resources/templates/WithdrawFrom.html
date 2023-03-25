@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Deposite form</title>
+</head>
+<body>
+<p th:each="instance : ${data}">
+    <td th:text="${instance.key} + ' : '">keyvalue</td>
+    <td th:text="${instance.value}">num</td>
+</p>
+<form th:action="@{/admin/transection-success}" method="post">
+<input type="hidden" name="type" th:value="${type}">
+<label>Enter amount</label>
+<input name="amount">
+<input name="AccountNumber" th:value="${accountNumber}" type="hidden">
+<button type="submit">Withdraw</button>
+</form>
+<a href="/admin/home">Cancle</a>
+</body>
+</html>

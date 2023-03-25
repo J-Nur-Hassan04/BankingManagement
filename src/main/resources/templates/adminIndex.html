@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+<form action="edit-custome-details" method="get">
+<input type="number" name="accNo">
+<button type="submit">Edit Details</button>
+</form>
+<form th:action="@{/admin/create-customer}" method="get">
+<button type="submit">create user</button>
+</form>
+<form th:action="@{/admin/account-verify-page}" method="post">
+<input name="type" value="d" type="hidden">
+<button type="submit">Deposit money</button>
+</form>
+<form th:action="@{/admin/account-verify-page}" method="post">
+<input name="type" value="w" type="hidden">
+<button type="submit">Withdraw money</button>
+</form>
+<form th:action="@{/logout}" method="post">
+	<input class="dropandwritebtn" type="submit" value="Logout" />
+</form>
+</body>
+</html>

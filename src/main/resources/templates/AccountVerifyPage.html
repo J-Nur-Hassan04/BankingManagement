@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Money Deposit form</title>
+</head>
+<body>
+
+<form th:action="@{/admin/verify-customer}" method="post">
+<label>Enter account number</label>
+<input id="accNumber" name="AcccountNumber">
+<input id="transection-type" name="type" th:value="${type}" type="hidden">
+<button type="submit">verify</button>
+</form>
+<a href="/admin/home">Cancle</a>
+
+</body>
+</html>

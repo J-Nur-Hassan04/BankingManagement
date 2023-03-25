@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+<form th:action="@{/logout}" method="post">
+	<input class="dropandwritebtn" type="submit" value="Logout" />
+</form>
+<form th:action="@{/user/edit-profile}" method="get">
+<input name="accNo" th:value="${data.getCustomerBean().getAccountNumber().getAccountNumber()}" type="hidden">
+<button type="submit">Edit Details</button>
+</div>
+<a th:href="@{/user/transfer-money}">Transfer money</a>
+<div class = "user-profile">
+<h2 id="user-header" th:text="'Welcome ' + ${data.getName()}"></h2>
+<p id="user-id" th:text = "'User Id : ' + ${data.getCustomerBean().getUserId()}"></p>
+<p id="user-name" th:text = "'User Name: ' +${data.getCustomerBean().getName()}">
+<p id="user-gender" th:text = "'Gender: ' +${data.getCustomerBean().getGender()}">
+<p id="user-email" th:text = "'Email Id: '+${data.getCustomerBean().getEmail()}">
+<p id="contact-number" th:text = "'contact Number: '+${data.getCustomerBean().getContactNumber()}">
+<p id="adhar-number" th:text = "'Adhar Number: '+${data.getCustomerBean().getAdharNo()}">
+<p id="account-number" th:text = "'Account Number: ' +${data.getCustomerBean().getAccountNumber().getAccountNumber()}">
+<p id="account-type" th:text = "'Account Type : ' +${data.getCustomerBean().getAccountNumber().getAccountType()}"></p>
+<p id="account-balance" th:text="'Account Balance : ' + ${data.getCustomerBean().getAccountNumber().getBalanceAmount()}">
+</div>
+<div class="transection-history">
+<h4>Transection history</h4>
+<table id="transection-table">
+  <tr>
+    <th>Transection Id</th>
+    <th>Amount</th>
+    <th>Transection type</th>
+    <th>Time</th>
+    <th>Balance Amount</th>
+  </tr>
+  <tr th:each="t : ${transections}">
+  <td th:text="${t.getTransactionId()}"></td>
+  <td th:text="${t.getAmount()}"></td>
+  <td th:text="${t.getTransectionType()}"></td>
+  <td th:text="${t.getLastUpdated()}"></td>
+  <td th:text="${t.getBalanceAmount()}"></td>
+  </tr>
+</table>
+</div>
+
+</body>
+</html>
+<style>
+#transection-history table, th, td {
+  border:1px solid black;
+}
+</style>
