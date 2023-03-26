@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<form th:action="@{/user/transfer-money}" method="post">
-<label>Enter account number</label>
-<input name="accNo" type="number" required="required">
-<br>
-<label>Enter amount</label>
-<input name="amount" type="number" required="required">
-<button type="submit">Transfer</button>
-</form>
 
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Money Transfer Form</title>
+    <link rel="stylesheet" href="/css/MoneyTransferFormCss.css">
+</head>
+
+<body>
+    <div class="wraper">
+        <a id="home-link" href="/user/home">Cancle</a>
+        <form id="money-transfer-form" th:action="@{/user/transfer-money}" method="post">
+            <label>Enter account number</label>
+            <input name="accNo" type="number" required="required">
+            <br>
+            <label>Enter amount</label>
+            <input name="amount" type="number" required="required">
+            <button type="submit">Transfer</button>
+        </form>
+    </div>
 </body>
+
 </html>

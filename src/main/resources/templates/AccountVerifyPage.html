@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Money Deposit form</title>
+    <meta charset="ISO-8859-1">
+    <title>Money Deposit form</title>
+    <link rel="stylesheet" href="/css/AccountVerifyCss.css">
 </head>
+
 <body>
-
-<form th:action="@{/admin/verify-customer}" method="post">
-<label>Enter account number</label>
-<input id="accNumber" name="AcccountNumber">
-<input id="transection-type" name="type" th:value="${type}" type="hidden">
-<button type="submit">verify</button>
-</form>
-<a href="/admin/home">Cancle</a>
-
+    <div class="wraper">
+        <a id="home-link" href="/admin/home">Cancle</a>
+        <form id="verify-form" th:action="@{/admin/verify-customer}" method="post">
+            <label>Enter account number</label>
+            <input type="number" id="acc-number" name="AcccountNumber" placeholder="Enter Acc No." required="required">
+            <input id="transection-type" name="type" th:value="${type}" type="hidden">
+            <button type="submit">verify</button>
+        </form>
+    </div>
 </body>
+
 </html>

@@ -85,10 +85,10 @@ public class AdminController {
 	{
 		ModelAndView modelAndView = new ModelAndView();
 		if(type.equals("w")) {
-		transactionService.withdrawMoney(amount, Integer.parseInt(accNo));
+		transactionService.withdrawMoney(amount, Integer.parseInt(accNo),"Debited");
 		}else if(type.equals("d"))
 		{
-			transactionService.depositeMoney(amount, Integer.parseInt(accNo));
+			transactionService.depositeMoney(amount, Integer.parseInt(accNo),"Credited");
 		}
 		modelAndView.addObject("data", customerService.getCustomerDetails(Integer.parseInt(accNo)));
 		modelAndView.setViewName("TransectionSuccess");

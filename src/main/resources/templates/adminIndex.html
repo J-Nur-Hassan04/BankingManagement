@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Home</title>
+	<meta charset="ISO-8859-1">
+	<title>Home</title>
+	<link rel="stylesheet" href="/css/AdminIndexCss.css">
 </head>
+
 <body>
-<form action="edit-custome-details" method="get">
-<input type="number" name="accNo">
-<button type="submit">Edit Details</button>
-</form>
-<form th:action="@{/admin/create-customer}" method="get">
-<button type="submit">create user</button>
-</form>
-<form th:action="@{/admin/account-verify-page}" method="post">
-<input name="type" value="d" type="hidden">
-<button type="submit">Deposit money</button>
-</form>
-<form th:action="@{/admin/account-verify-page}" method="post">
-<input name="type" value="w" type="hidden">
-<button type="submit">Withdraw money</button>
-</form>
-<form th:action="@{/logout}" method="post">
-	<input class="dropandwritebtn" type="submit" value="Logout" />
-</form>
+	<div class="wraper">
+		<h2 id="title-header">Welcome Admin</h2>
+		<div id="logout">
+			<form th:action="@{/logout}" method="post">
+				<input class="dropandwritebtn" type="submit" value="Logout" />
+			</form>
+		</div>
+		<div id="create-user">
+			<form th:action="@{/admin/create-customer}" method="get">
+				<button type="submit">create user</button>
+			</form>
+		</div>
+		<div id="edit-details">
+			<form action="edit-custome-details" method="get">
+				<input type="number" name="accNo" placeholder="Enter Account Number to edit">
+				<button type="submit">Edit Details</button>
+			</form>
+		</div>
+		<div id="edit-dep-with">
+			<div id="money-deposite">
+				<form th:action="@{/admin/account-verify-page}" method="post">
+					<input name="type" value="d" type="hidden">
+					<button type="submit">Deposit money</button>
+				</form>
+			</div>
+			<div id="withdraw-money">
+				<form th:action="@{/admin/account-verify-page}" method="post">
+					<input name="type" value="w" type="hidden">
+					<button type="submit">Withdraw money</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
 </body>
+
 </html>

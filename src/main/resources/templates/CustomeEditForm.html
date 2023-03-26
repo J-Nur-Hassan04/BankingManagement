@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="/css/CustomerEditFormCss.css">
 </head>
+
 <body>
-<form th:action="@{${saveLink}}" method="post">
-<b th:text = "'Account Number :' + ${data.get('Account Number')}"></b>
-<br>
-<input name="accNo" th:value = "${data.get('Account Number')}" type="hidden">
-<label>Name : </label>
-<input name="name" th:value="${data.get('Name')}">
-<br>
-<label>Email : </label>
-<input name="email" th:value="${data.get('User Email')}">
-<br>
-<label>Adhar Number : </label>
-<input name="adhar" th:value = "${data.get('Adhar Number')}">
-<br>
-<label>Contact Number : </label>
-<input name="contact" th:value = "${data.get('Contact Number')}">
-<br>
-<label>Gender : </label>
-<select name="gender">
-<option value="Male">Male</option>
-<option value="Female">Female</option>
-</select>
-<br>
-<button type="submit">Save</button>
-</form>
-<a th:href="@{${homeLink}}">Cancle</a>
+    <div class="wraper">
+        <a id="home-link" th:href="@{${homeLink}}">Cancle</a>
+        <form id="user-update-form" th:action="@{${saveLink}}" method="post">
+            <b th:text="'Account Number :' + ${data.get('Account Number')}"></b>
+            <br>
+            <input name="accNo" th:value="${data.get('Account Number')}" type="hidden">
+            <label>Name : </label>
+            <input name="name" th:value="${data.get('Name')}">
+            <br>
+            <label>Email : </label>
+            <input name="email" th:value="${data.get('User Email')}">
+            <br>
+            <label>Adhar Number : </label>
+            <input name="adhar" th:value="${data.get('Adhar Number')}">
+            <br>
+            <label>Contact Number : </label>
+            <input name="contact" th:value="${data.get('Contact Number')}">
+            <br>
+            <label>Gender : </label>
+            <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br>
+            <button type="submit">Save</button>
+        </form>
+    </div>
 
 </body>
+
 </html>

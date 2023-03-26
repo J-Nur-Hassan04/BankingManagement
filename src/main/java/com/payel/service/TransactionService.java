@@ -27,7 +27,7 @@ public class TransactionService {
 	@Autowired
 	CustomerBeanRepository customerBeanRepository;
 	
-	public Boolean depositeMoney(Integer amount, Integer accNo) throws Exception
+	public Boolean depositeMoney(Integer amount, Integer accNo,String transectionType) throws Exception
 	{
 		TransactionBean transactionBean = new TransactionBean();
 		Optional<AccountBean> accNumber = accountBeanRepository.findById(accNo);
@@ -41,7 +41,7 @@ public class TransactionService {
 		transactionBean.setBeneficiaryAccountNumber(accNumber.get());
 		transactionBean.setAmount(amount);
 		transactionBean.setBalanceAmount(accNumber.get().getBalanceAmount()+ amount);
-		transactionBean.setTransectionType("Credited");
+		transactionBean.setTransectionType(transectionType);
 		
 		AccountBean deposite = accNumber.get();
 		deposite.setBalanceAmount(accNumber.get().getBalanceAmount() + amount);
@@ -62,13 +62,13 @@ public class TransactionService {
 		Boolean depositeSuccess = true;
 			
 			try {
-				withdrawSuccess = withdrawMoney(amount, senderAccNo);
+				withdrawSuccess = withdrawMoney(amount, senderAccNo, "Money transfer");
 				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
 			try {
-				depositeSuccess = depositeMoney(amount, receiverAccNo);
+				depositeSuccess = depositeMoney(amount, receiverAccNo,"Money transfer");
 				
 			} catch (Exception e) {
 				depositeSuccess = false;
@@ -76,13 +76,13 @@ public class TransactionService {
 			}
 			if(!depositeSuccess)
 			{
-				depositeMoney(amount, senderAccNo);
+				depositeMoney(amount, senderAccNo, "Role back");
 			}
 			
 		return true;
 	}
 	
-	public Boolean withdrawMoney(Integer amount, Integer accNo) throws Exception
+	public Boolean withdrawMoney(Integer amount, Integer accNo, String transectionType) throws Exception
 	{
 		TransactionBean transactionBean = new TransactionBean();
 		Optional<AccountBean> accNumber = accountBeanRepository.findById(accNo);
@@ -95,7 +95,7 @@ public class TransactionService {
 		transactionBean.setBenefeciaryName(custoOptional.get().getName());
 		transactionBean.setBeneficiaryAccountNumber(accNumber.get());
 		transactionBean.setAmount(amount);
-		transactionBean.setTransectionType("Debited");
+		transactionBean.setTransectionType(transectionType);
 		
 		
 		AccountBean withdraw = accNumber.get();
